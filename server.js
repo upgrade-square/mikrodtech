@@ -100,10 +100,9 @@ app.get("/", (req, res) => {
 import { Readable } from "stream"; // ✅ Keep this one (moved below chatbot)
 
 // --- DOWNLOAD SPEED TEST ---
-app.get("/api/speedtest/download", async (req, res) => {
+app.get("/api/speedtest/download", (req, res) => {
   const sizeMB = Math.min(Math.max(parseInt(req.query.size) || 50, 1), 200);
   const totalBytes = sizeMB * 1024 * 1024;
-  const targetMbps = 80; // Simulated average link capacity
 
   res.set({
     "Content-Type": "application/octet-stream",
@@ -114,19 +113,12 @@ app.get("/api/speedtest/download", async (req, res) => {
   let sent = 0;
 
   const stream = new Readable({
-    async read() {
+    read() {
       if (sent >= totalBytes) return this.push(null);
-
-      const variableChunk = randomBytes(chunkSize * (0.5 + Math.random()));
-      sent += variableChunk.length;
-
-      // Simulate realistic throughput delay
-      const delay =
-        (variableChunk.length * 8) / (targetMbps * 1024 * 1024) * 1000;
-      await new Promise((r) => setTimeout(r, delay * (0.7 + Math.random() * 0.6)));
-
-      this.push(variableChunk);
-    },
+      const chunk = randomBytes(Math.min(chunkSize, totalBytes - sent));
+      sent += chunk.length;
+      this.push(chunk);
+    }
   });
 
   stream.pipe(res);

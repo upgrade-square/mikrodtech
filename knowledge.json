@@ -1,0 +1,77 @@
+{
+  "company": "MikrodTech",
+  "tagline": "Smart Solutions. Trusted Tech.",
+  "overview": "MikrodTech is a professional computer and network solutions company that provides smart, reliable, and high-end technology services. We aim to empower businesses, schools, and individuals with efficient and secure tech solutions that enhance productivity and connectivity.",
+  
+  "mission": "To deliver innovative, dependable, and secure computer and networking solutions that simplify technology for clients across Kenya and beyond.",
+  
+  "vision": "To become a leading tech solutions provider in East Africa, known for excellence, integrity, and trust in every service offered.",
+  
+  "core_values": [
+    "Professionalism",
+    "Integrity",
+    "Innovation",
+    "Trust",
+    "Customer Satisfaction"
+  ],
+
+  "services": {
+    "computer_solutions": [
+      "Computer sales and installations",
+      "Hardware and software maintenance",
+      "Printer setup, troubleshooting, and configuration",
+      "Operating system installation and optimization"
+    ],
+    "networking_solutions": [
+      "Network design, setup, and configuration",
+      "Device discovery and vulnerability scanning",
+      "Network monitoring and troubleshooting",
+      "Wi-Fi setup and access point management",
+      "LAN/WAN installations"
+    ],
+    "security_solutions": [
+      "CCTV and IP camera installations",
+      "Access control systems",
+      "Cybersecurity audits and protection",
+      "Intrusion detection and prevention systems (IDS/IPS)"
+    ],
+    "power_backup_solutions": [
+      "UPS and inverter installation",
+      "Power backup system configuration and maintenance"
+    ],
+    "business_tools": [
+      "POS system setup and configuration",
+      "Productivity software installation",
+      "Gaming gear and accessories setup"
+    ],
+    "educational_services": [
+      "IT and networking training",
+      "Cybersecurity awareness and education",
+      "Student project mentorship and technical support"
+    ]
+  },
+
+  "industries_served": [
+    "Educational institutions",
+    "Corporate offices",
+    "Retail and POS businesses",
+    "Homes and small businesses",
+    "Churches and non-profits"
+  ],
+
+  "branding": {
+    "tone": "Professional, helpful, and trustworthy",
+    "colors": ["blue", "black", "white"],
+    "logo_shape": "Circular logo with tech-inspired elements"
+  },
+
+  "contact_info": {
+    "email": "info@mikrodtech.com",
+    "phone": "+254769329029",
+    "linkedin": "https://www.linkedin.com/company/mikrodtech",
+    "location": "Kenya"
+  },
+
+  "slogan": "Smart Solutions. Trusted Tech.",
+  "assistant_identity": "You are MikrodTech's official AI assistant. You provide accurate, friendly, and professional responses about MikrodTech’s services, mission, and technology expertise. Always maintain a polite and human-like tone."
+}

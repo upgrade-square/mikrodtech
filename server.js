@@ -99,29 +99,28 @@ app.get("/", (req, res) => {
 
 import { Readable } from "stream"; // ✅ Keep this one (moved below chatbot)
 
-// --- DOWNLOAD SPEED TEST ---
-app.get("/api/speedtest/download", (req, res) => {
-  const sizeMB = Math.min(Math.max(parseInt(req.query.size) || 50, 1), 200);
-  const totalBytes = sizeMB * 1024 * 1024;
+// ====================================================
+// ⚡ UPLOAD SPEED TEST ROUTE
+// ====================================================
+app.post("/api/speedtest/upload", async (req, res) => {
+  try {
+    const sizeMB = Math.min(Math.max(parseInt(req.query.size) || 10, 1), 100);
+    const chunks = [];
 
-  res.set({
-    "Content-Type": "application/octet-stream",
-    "Cache-Control": "no-store",
-  });
+    // Collect uploaded data
+    req.on("data", (chunk) => {
+      chunks.push(chunk);
+    });
 
-  const chunkSize = 128 * 1024; // 128 KB
-  let sent = 0;
-
-  const stream = new Readable({
-    read() {
-      if (sent >= totalBytes) return this.push(null);
-      const chunk = randomBytes(Math.min(chunkSize, totalBytes - sent));
-      sent += chunk.length;
-      this.push(chunk);
-    }
-  });
-
-  stream.pipe(res);
+    req.on("end", () => {
+      const totalBytes = Buffer.concat(chunks).length;
+      console.log(`📤 Received ${totalBytes / (1024 * 1024)} MB upload`);
+      res.json({ status: "ok", receivedMB: (totalBytes / (1024 * 1024)).toFixed(2) });
+    });
+  } catch (err) {
+    console.error("Upload test error:", err);
+    res.status(500).json({ error: "Upload test failed" });
+  }
 });
 
 // ====================================================

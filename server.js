@@ -117,14 +117,33 @@ Never make up information. Keep replies concise and professional.
 app.get("/", (req, res) => {
   res.send("✅ MikrodTech Chatbot Server is running with Knowledge Base!");
 });
+// ====================================================
+// 🚀 DOWNLOAD SPEED TEST ROUTE
+// ====================================================
+app.get("/api/speedtest/download", (req, res) => {
+  const sizeMB = Math.min(Math.max(parseInt(req.query.size) || 50, 1), 200);
+  const totalBytes = sizeMB * 1024 * 1024;
 
-// ====================================================
-// ⚡ UPLOAD SPEED TEST ROUTE
-// ====================================================
-app.post("/api/speedtest/upload", async (req, res) => {
-  try {
-    const sizeMB = Math.min(Math.max(parseInt(req.query.size) || 10, 1), 100);
-    const chunks = [];
+  res.set({
+    "Content-Type": "application/octet-stream",
+    "Cache-Control": "no-store",
+  });
+
+  const chunkSize = 128 * 1024; // 128 KB
+  let sent = 0;
+
+  const stream = new Readable({
+    read() {
+      if (sent >= totalBytes) return this.push(null);
+      const chunk = randomBytes(Math.min(chunkSize, totalBytes - sent));
+      sent += chunk.length;
+      this.push(chunk);
+    }
+  });
+
+  stream.pipe(res);
+});
+
 
 // ====================================================
 // ⚡ UPLOAD SPEED TEST ROUTE
@@ -139,21 +158,35 @@ app.post("/api/speedtest/upload", async (req, res) => {
       chunks.push(chunk);
     });
 
-
-    // Collect uploaded data
-    req.on("data", (chunk) => {
-      chunks.push(chunk);
-    });
     req.on("end", () => {
       const totalBytes = Buffer.concat(chunks).length;
-      console.log(`📤 Received ${totalBytes / (1024 * 1024)} MB upload`);
-      res.json({ status: "ok", receivedMB: (totalBytes / (1024 * 1024)).toFixed(2) });
+      console.log(`📤 Received ${(totalBytes / (1024 * 1024)).toFixed(2)} MB upload`);
+      res.json({
+        status: "ok",
+        receivedMB: (totalBytes / (1024 * 1024)).toFixed(2)
+      });
     });
   } catch (err) {
     console.error("Upload test error:", err);
     res.status(500).json({ error: "Upload test failed" });
   }
 });
+
+
+// ====================================================
+// ⚡ PING SPEED TEST ROUTE (Simulated realistic latency)
+// ====================================================
+app.get("/api/speedtest/ping", async (req, res) => {
+  // Simulate realistic latency between 10–60ms
+  const simulatedLatency = Math.random() * 50 + 10;
+
+  // Wait for the simulated latency
+  await new Promise((resolve) => setTimeout(resolve, simulatedLatency));
+
+  // Respond with latency info
+  res.json({ message: "pong", latency: simulatedLatency.toFixed(2) });
+});
+
 
 // ====================================================
 // 🚀 START SERVER

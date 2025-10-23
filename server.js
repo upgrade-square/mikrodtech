@@ -4,12 +4,18 @@ import cors from "cors";
 import dotenv from "dotenv";
 import fs from "fs";
 import OpenAI from "openai";
-import { randomBytes } from "crypto"; // ✅ Only one import
+import { randomBytes } from "crypto";
+import { Readable } from "stream"; // Keep this import here
 
 // ✅ Load environment variables
 dotenv.config({ path: "./.env" });
 
-console.log("🔑 OpenRouter Key loaded?", !!process.env.OPENROUTER_API_KEY);
+// 🔍 Check API Key
+if (!process.env.OPENROUTER_API_KEY) {
+  console.warn("⚠️ Warning: OPENROUTER_API_KEY is NOT set. Chatbot requests will fail.");
+} else {
+  console.log("🔑 OpenRouter Key loaded?", !!process.env.OPENROUTER_API_KEY);
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,7 +40,9 @@ const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
 });
 
-// --- Chatbot Route ---
+// ====================================================
+// 💬 CHATBOT ROUTE
+// ====================================================
 app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
@@ -55,9 +63,7 @@ Tagline: ${knowledgeData.tagline}
 Mission: ${knowledgeData.mission}
 Vision: ${knowledgeData.vision}
 Core values: ${knowledgeData.core_values?.join(", ")}
-Services offered: ${Object.values(knowledgeData.services || {})
-      .flat()
-      .join(", ")}
+Services offered: ${Object.values(knowledgeData.services || {}).flat().join(", ")}
 Contact: ${knowledgeData.contact_info?.phone}, ${knowledgeData.contact_info?.email}
 Tone: ${knowledgeData.branding?.tone}
 
@@ -65,6 +71,7 @@ If the question is unrelated to MikrodTech, respond politely but briefly.
 Never make up information. Keep replies concise and professional.
 `;
 
+    // --- Make API Request ---
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
@@ -83,21 +90,41 @@ Never make up information. Keep replies concise and professional.
 
     console.log(`🤖 Reply: ${reply}`);
     res.json({ reply });
+
   } catch (error) {
-    console.error("❌ Error generating response:", error);
+    console.error("❌ Error generating response (full):", error);
+
+    if (error?.response) {
+      console.error("❌ error.response.status:", error.response.status);
+      console.error("❌ error.response.data:", error.response.data);
+    }
+
+    if (!process.env.OPENROUTER_API_KEY) {
+      console.error("❌ OPENROUTER_API_KEY is NOT set (missing in .env)");
+    } else {
+      console.error("🔑 OPENROUTER_API_KEY appears set.");
+    }
+
     res.status(500).json({
-      reply:
-        "⚠️ Sorry, I'm having trouble responding right now. Please try again shortly.",
+      reply: "⚠️ Sorry, I'm having trouble responding right now. Please try again shortly.",
     });
   }
 });
 
-// --- Health Check Route ---
+// ====================================================
+// 🩺 HEALTH CHECK ROUTE
+// ====================================================
 app.get("/", (req, res) => {
   res.send("✅ MikrodTech Chatbot Server is running with Knowledge Base!");
 });
 
-import { Readable } from "stream"; // ✅ Keep this one (moved below chatbot)
+// ====================================================
+// ⚡ UPLOAD SPEED TEST ROUTE
+// ====================================================
+app.post("/api/speedtest/upload", async (req, res) => {
+  try {
+    const sizeMB = Math.min(Math.max(parseInt(req.query.size) || 10, 1), 100);
+    const chunks = [];
 
 // ====================================================
 // ⚡ UPLOAD SPEED TEST ROUTE
@@ -112,6 +139,11 @@ app.post("/api/speedtest/upload", async (req, res) => {
       chunks.push(chunk);
     });
 
+
+    // Collect uploaded data
+    req.on("data", (chunk) => {
+      chunks.push(chunk);
+    });
     req.on("end", () => {
       const totalBytes = Buffer.concat(chunks).length;
       console.log(`📤 Received ${totalBytes / (1024 * 1024)} MB upload`);

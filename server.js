@@ -87,8 +87,12 @@ Always format your responses as HTML unordered lists (<ul><li>) for clear bullet
 let reply =
   completion.choices?.[0]?.message?.content?.trim() ||
   "Sorry, I didn’t quite catch that.";
+
+// Clean up unnecessary <s> tags
 reply = reply.replace(/<\/?s>/gi, "").trim();
 
+// Send plain text or HTML list (no extra bullets)
+res.json({ reply });
 
 
     console.log(`🤖 Reply: ${reply}`);

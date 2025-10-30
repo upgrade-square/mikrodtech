@@ -54,7 +54,7 @@ app.post("/chat", async (req, res) => {
     console.log(`💬 User: ${message}`);
 
     // --- Include company info as context ---
- const systemPrompt = `
+    const systemPrompt = `
 You are MikrodTech's official AI assistant.
 Use the following company information to answer user questions accurately and professionally.
 
@@ -69,9 +69,7 @@ Tone: ${knowledgeData.branding?.tone}
 
 If the question is unrelated to MikrodTech, respond politely but briefly.
 Never make up information. Keep replies concise and professional.
-Always format your responses as HTML unordered lists (<ul><li>) for clear bullet points.
 `;
-
 
     // --- Make API Request ---
     const completion = await openai.chat.completions.create({
@@ -84,18 +82,14 @@ Always format your responses as HTML unordered lists (<ul><li>) for clear bullet
       max_tokens: 250,
     });
 
-let reply =
-  completion.choices?.[0]?.message?.content?.trim() ||
-  "Sorry, I didn’t quite catch that.";
+    let reply =
+      completion.choices?.[0]?.message?.content?.trim() ||
+      "Sorry, I didn’t quite catch that.";
 
-// Clean up unnecessary <s> tags
-reply = reply.replace(/<\/?s>/gi, "").trim();
-
-// Send plain text or HTML list (no extra bullets)
-res.json({ reply });
-
+    reply = reply.replace(/<\/?s>/gi, "").trim();
 
     console.log(`🤖 Reply: ${reply}`);
+    res.json({ reply });
 
   } catch (error) {
     console.error("❌ Error generating response (full):", error);

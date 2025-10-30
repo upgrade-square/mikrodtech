@@ -96,7 +96,6 @@ res.json({ reply });
 
 
     console.log(`🤖 Reply: ${reply}`);
-    res.json({ reply });
 
   } catch (error) {
     console.error("❌ Error generating response (full):", error);

@@ -84,21 +84,11 @@ Always format your responses as HTML unordered lists (<ul><li>) for clear bullet
       max_tokens: 250,
     });
 
- let reply =
+let reply =
   completion.choices?.[0]?.message?.content?.trim() ||
   "Sorry, I didn’t quite catch that.";
-// 🟢 Format the reply into bullet points for better readability
-if (!reply.includes("<ul>") && !reply.includes("<li>") && reply.includes("\n")) {
-  reply = reply
-    .split("\n")
-    .map(line => line.trim())
-    .filter(line => line !== "")
-    .map(line => `• ${line}`)
-    .join("\n");
-}
-
-// Clean up any unnecessary tags
 reply = reply.replace(/<\/?s>/gi, "").trim();
+
 
 
     console.log(`🤖 Reply: ${reply}`);

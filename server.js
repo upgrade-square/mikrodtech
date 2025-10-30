@@ -87,9 +87,8 @@ Always format your responses as HTML unordered lists (<ul><li>) for clear bullet
  let reply =
   completion.choices?.[0]?.message?.content?.trim() ||
   "Sorry, I didn’t quite catch that.";
-
 // 🟢 Format the reply into bullet points for better readability
-if (reply.includes("\n")) {
+if (!reply.includes("<ul>") && !reply.includes("<li>") && reply.includes("\n")) {
   reply = reply
     .split("\n")
     .map(line => line.trim())

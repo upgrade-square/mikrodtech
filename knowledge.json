@@ -15,41 +15,36 @@
     "Customer Satisfaction"
   ],
 
-  "services": {
-    "computer_solutions": [
-      "Computer sales and installations",
-      "Hardware and software maintenance",
-      "Printer setup, troubleshooting, and configuration",
-      "Operating system installation and optimization"
-    ],
-    "networking_solutions": [
-      "Network design, setup, and configuration",
-      "Device discovery and vulnerability scanning",
-      "Network monitoring and troubleshooting",
-      "Wi-Fi setup and access point management",
-      "LAN/WAN installations"
-    ],
-    "security_solutions": [
-      "CCTV and IP camera installations",
-      "Access control systems",
-      "Cybersecurity audits and protection",
-      "Intrusion detection and prevention systems (IDS/IPS)"
-    ],
-    "power_backup_solutions": [
-      "UPS and inverter installation",
-      "Power backup system configuration and maintenance"
-    ],
-    "business_tools": [
-      "POS system setup and configuration",
-      "Productivity software installation",
-      "Gaming gear and accessories setup"
-    ],
-    "educational_services": [
-      "IT and networking training",
-      "Cybersecurity awareness and education",
-      "Student project mentorship and technical support"
-    ]
-  },
+"services": {
+  "computer_solutions": [
+    "Computer sales and installations",
+    "Hardware and software maintenance",
+    "Printer setup, troubleshooting, and configuration",
+    "Operating system installation and optimization",
+    "Productivity software installation",
+    "Gaming gear and accessories setup"
+  ],
+  "networking_solutions": [
+    "Network design, setup, and configuration",
+    "Device discovery and vulnerability scanning",
+    "Network monitoring and troubleshooting",
+    "Wi-Fi setup and access point management",
+    "LAN/WAN installations"
+  ],
+  "security_solutions": [
+    "CCTV and IP camera installations",
+    "Access control systems",
+    "Cybersecurity audits and protection",
+    "Intrusion detection and prevention systems (IDS/IPS)"
+  ],
+  "power_backup_solutions": [
+    "UPS and inverter installation",
+    "Power backup system configuration and maintenance"
+  ],
+  "business_tools": [
+    "POS system setup and configuration"
+  ]
+},
 
   "industries_served": [
     "Educational institutions",

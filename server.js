@@ -220,6 +220,38 @@ app.get("/api/speedtest/ping", async (req, res) => {
 
 
 // ====================================================
+// 👁️ PAGE VISIT COUNTER
+// ====================================================
+const COUNTER_FILE = "counter.txt";
+const SECRET_KEY = "MySecret123"; // change this to your secret key
+
+// Create counter file if it doesn't exist
+if (!fs.existsSync(COUNTER_FILE)) {
+  fs.writeFileSync(COUNTER_FILE, "0", "utf8");
+}
+
+// Route to increment visits
+app.get("/api/visits", (req, res) => {
+  try {
+    let count = parseInt(fs.readFileSync(COUNTER_FILE, "utf8")) || 0;
+    count++;
+    fs.writeFileSync(COUNTER_FILE, count.toString(), "utf8");
+
+    // If secret key is provided, return count
+    if (req.query.key === SECRET_KEY) {
+      return res.json({ message: "Total page visits", visits: count });
+    }
+
+    // Otherwise just return a silent success
+    res.status(204).send();
+  } catch (err) {
+    console.error("Error updating counter:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+
+// ====================================================
 // 🚀 START SERVER
 // ====================================================
 app.listen(PORT, () => {

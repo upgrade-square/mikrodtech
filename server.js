@@ -217,38 +217,51 @@ app.get("/api/speedtest/ping", async (req, res) => {
   // Respond with latency info
   res.json({ message: "pong", latency: simulatedLatency.toFixed(2) });
 });
-
-
 // ====================================================
-// 👁️ PAGE VISIT COUNTER
+// 📊 PAGE VISIT COUNTER ENDPOINT
 // ====================================================
-const COUNTER_FILE = "counter.txt";
-const SECRET_KEY = "MySecret123"; // change this to your secret key
+const COUNTER_FILE = "./counter.txt";
 
-// Create counter file if it doesn't exist
-if (!fs.existsSync(COUNTER_FILE)) {
-  fs.writeFileSync(COUNTER_FILE, "0", "utf8");
+// Helper to load counter data
+function loadCounter() {
+  try {
+    const data = fs.readFileSync(COUNTER_FILE, "utf8");
+    return JSON.parse(data);
+  } catch {
+    return { total: 0, daily: {} };
+  }
 }
 
-// Route to increment visits
+// Helper to save counter data
+function saveCounter(data) {
+  fs.writeFileSync(COUNTER_FILE, JSON.stringify(data, null, 2));
+}
+
+// Increment counter on visit
 app.get("/api/visits", (req, res) => {
-  try {
-    let count = parseInt(fs.readFileSync(COUNTER_FILE, "utf8")) || 0;
-    count++;
-    fs.writeFileSync(COUNTER_FILE, count.toString(), "utf8");
+  const { key } = req.query;
+  const secretKey = "MySecret123"; // 🔒 change this to your private key
 
-    // If secret key is provided, return count
-    if (req.query.key === SECRET_KEY) {
-      return res.json({ message: "Total page visits", visits: count });
-    }
+  let counter = loadCounter();
+  const today = new Date().toISOString().split("T")[0];
 
-    // Otherwise just return a silent success
-    res.status(204).send();
-  } catch (err) {
-    console.error("Error updating counter:", err);
-    res.status(500).json({ error: "Internal server error" });
+  // If no key → normal visitor (increment)
+  if (!key) {
+    counter.total++;
+    counter.daily[today] = (counter.daily[today] || 0) + 1;
+    saveCounter(counter);
+    return res.json({ message: "Visit recorded" });
   }
+
+  // If key matches → admin request
+  if (key === secretKey) {
+    return res.json(counter);
+  }
+
+  // Invalid key
+  return res.status(403).json({ error: "Unauthorized" });
 });
+
 
 
 // ====================================================

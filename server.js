@@ -66,7 +66,7 @@ Core values: ${knowledgeData.core_values?.join(", ")}
 
 Here is a structured overview of MikrodTech’s services:
 
-💻 Computers & Hardware
+Computers & Hardware
 - Computer sales and installations
 - Hardware and software maintenance
 - Printer setup, troubleshooting, and configuration
@@ -74,14 +74,14 @@ Here is a structured overview of MikrodTech’s services:
 - Productivity software installation
 - Gaming gear and accessories setup
 
-🌐 Networking & Internet
+Networking & Internet
 - Network design, setup, and configuration
 - Device discovery and vulnerability scanning
 - Network monitoring and troubleshooting
 - Wi-Fi setup and access point management
 - LAN/WAN installations
 
-🔒 Security & Surveillance
+Security & Surveillance
 - CCTV and IP camera installations
 - Access control systems
 - Cybersecurity audits and protection
@@ -91,7 +91,7 @@ Here is a structured overview of MikrodTech’s services:
 - UPS and inverter installation
 - Power backup system configuration and maintenance
 
-💳 Business & POS
+Business & POS
 - POS system setup and configuration
 
 Contact: ${knowledgeData.contact_info?.phone}, ${knowledgeData.contact_info?.email}

@@ -219,6 +219,8 @@ app.get("/api/speedtest/ping", async (req, res) => {
 });
 
 
+
+
 // =====================
 // WEBSITE VISIT COUNTER
 // =====================
@@ -280,3 +282,4 @@ app.get("/api/visits", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 MikrodTech chatbot server running on port ${PORT}`);
 });
+// redeploy trigger Sun Nov  2 22:20:19 EAT 2025

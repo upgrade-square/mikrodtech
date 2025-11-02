@@ -217,51 +217,61 @@ app.get("/api/speedtest/ping", async (req, res) => {
   // Respond with latency info
   res.json({ message: "pong", latency: simulatedLatency.toFixed(2) });
 });
-// ====================================================
-// 📊 PAGE VISIT COUNTER ENDPOINT
-// ====================================================
-const COUNTER_FILE = "./counter.txt";
 
-// Helper to load counter data
-function loadCounter() {
+
+// =====================
+// WEBSITE VISIT COUNTER
+// =====================
+import fs from "fs";
+import path from "path";
+
+// File where visit counts are stored
+const COUNTER_FILE = path.join(process.cwd(), "visits.json");
+
+// Function: load or initialize visit data
+function loadVisitData() {
   try {
-    const data = fs.readFileSync(COUNTER_FILE, "utf8");
-    return JSON.parse(data);
-  } catch {
+    if (!fs.existsSync(COUNTER_FILE)) {
+      const initialData = { total: 0, daily: {} };
+      fs.writeFileSync(COUNTER_FILE, JSON.stringify(initialData, null, 2));
+      return initialData;
+    }
+
+    const raw = fs.readFileSync(COUNTER_FILE, "utf8");
+    return JSON.parse(raw || '{"total":0,"daily":{}}');
+  } catch (err) {
+    console.error("Error loading visits.json:", err);
     return { total: 0, daily: {} };
   }
 }
 
-// Helper to save counter data
-function saveCounter(data) {
-  fs.writeFileSync(COUNTER_FILE, JSON.stringify(data, null, 2));
+// Function: save visit data safely
+function saveVisitData(data) {
+  try {
+    fs.writeFileSync(COUNTER_FILE, JSON.stringify(data, null, 2));
+  } catch (err) {
+    console.error("Error saving visits.json:", err);
+  }
 }
 
-// Increment counter on visit
-app.get("/api/visits", (req, res) => {
-  const { key } = req.query;
-  const secretKey = "MySecret123"; // 🔒 change this to your private key
+// Load current visit data
+let visitData = loadVisitData();
 
-  let counter = loadCounter();
-  const today = new Date().toISOString().split("T")[0];
-
-  // If no key → normal visitor (increment)
-  if (!key) {
-    counter.total++;
-    counter.daily[today] = (counter.daily[today] || 0) + 1;
-    saveCounter(counter);
-    return res.json({ message: "Visit recorded" });
+// Middleware: count visits
+app.use((req, res, next) => {
+  if (req.path === "/" || req.path.endsWith(".html")) {
+    const today = new Date().toISOString().split("T")[0];
+    visitData.total++;
+    visitData.daily[today] = (visitData.daily[today] || 0) + 1;
+    saveVisitData(visitData);
   }
-
-  // If key matches → admin request
-  if (key === secretKey) {
-    return res.json(counter);
-  }
-
-  // Invalid key
-  return res.status(403).json({ error: "Unauthorized" });
+  next();
 });
 
+// API route to view visit stats (for admin panel)
+app.get("/api/visits", (req, res) => {
+  res.json(visitData);
+});
 
 
 // ====================================================

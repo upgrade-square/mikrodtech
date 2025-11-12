@@ -224,7 +224,6 @@ app.get("/api/speedtest/ping", async (req, res) => {
 // =====================
 // WEBSITE VISIT COUNTER
 // =====================
-import fs from "fs";
 import path from "path";
 
 // File where visit counts are stored

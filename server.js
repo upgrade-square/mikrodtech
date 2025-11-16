@@ -102,16 +102,16 @@ Never make up information. Keep replies concise and professional.
 `;
 
 
-    // --- Make API Request ---
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: message },
-      ],
-      temperature: 0.7,
-      max_tokens: 250,
-    });
+  const completion = await openai.chat.completions.create({
+  model: "gpt-4o-mini",
+  messages: [
+    { role: "system", content: systemPrompt },
+    { role: "user", content: message },
+  ],
+  temperature: 0.7,
+  max_tokens: 1200, // <-- increase for long responses
+});
+
 
     let reply =
       completion.choices?.[0]?.message?.content?.trim() ||

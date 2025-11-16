@@ -1,11 +1,11 @@
 {
   "company": "MikrodTech",
   "tagline": "Smart Solutions. Trusted Tech.",
-  "overview": "MikrodTech is a professional computer and network solutions company that provides smart, reliable, and high-end technology services. We aim to empower businesses, schools, and individuals with efficient and secure tech solutions that enhance productivity and connectivity.",
+  "overview": "MikrodTech is a professional technology solutions provider delivering innovative, dependable, and secure tech services. We empower businesses, schools, and individuals across Kenya with high-end, efficient, and reliable technology solutions.",
   
-  "mission": "To deliver innovative, dependable, and secure computer and networking solutions that simplify technology for clients across Kenya and beyond.",
+  "mission": "To deliver innovative, dependable, and secure technology solutions that simplify tech for clients across Kenya and beyond.",
   
-  "vision": "To become a leading tech solutions provider in East Africa, known for excellence, integrity, and trust in every service offered.",
+  "vision": "To become a leading tech solutions provider in East Africa, recognized for excellence, integrity, and trust in every service offered.",
   
   "core_values": [
     "Professionalism",
@@ -15,36 +15,36 @@
     "Customer Satisfaction"
   ],
 
-"services": {
-  "computer_solutions": [
-    "Computer sales and installations",
-    "Hardware and software maintenance",
-    "Printer setup, troubleshooting, and configuration",
-    "Operating system installation and optimization",
-    "Productivity software installation",
-    "Gaming gear and accessories setup"
-  ],
-  "networking_solutions": [
-    "Network design, setup, and configuration",
-    "Device discovery and vulnerability scanning",
-    "Network monitoring and troubleshooting",
-    "Wi-Fi setup and access point management",
-    "LAN/WAN installations"
-  ],
-  "security_solutions": [
-    "CCTV and IP camera installations",
-    "Access control systems",
-    "Cybersecurity audits and protection",
-    "Intrusion detection and prevention systems (IDS/IPS)"
-  ],
-  "power_backup_solutions": [
-    "UPS and inverter installation",
-    "Power backup system configuration and maintenance"
-  ],
-  "business_tools": [
-    "POS system setup and configuration"
-  ]
-},
+  "services": {
+    "computer_solutions": [
+      "Computer sales and installations",
+      "Hardware and software maintenance",
+      "Printer setup, troubleshooting, and configuration",
+      "Operating system installation and optimization",
+      "Productivity software installation",
+      "Gaming gear and accessories setup"
+    ],
+    "networking_solutions": [
+      "Network design, setup, and configuration",
+      "Device discovery and vulnerability scanning",
+      "Network monitoring and troubleshooting",
+      "Wi-Fi setup and access point management",
+      "LAN/WAN installations"
+    ],
+    "security_solutions": [
+      "CCTV and IP camera installations",
+      "Access control systems",
+      "Cybersecurity audits and protection",
+      "Intrusion detection and prevention systems (IDS/IPS)"
+    ],
+    "power_backup_solutions": [
+      "UPS and inverter installation",
+      "Power backup system configuration and maintenance"
+    ],
+    "business_tools": [
+      "POS system setup and configuration"
+    ]
+  },
 
   "industries_served": [
     "Educational institutions",
@@ -61,12 +61,27 @@
   },
 
   "contact_info": {
-    "email": "info@mikrodtech.com",
+    "email": "info@mikrodtech.co.ke",
     "phone": "+254769329029",
     "linkedin": "https://www.linkedin.com/company/mikrodtech",
     "location": "Kenya"
   },
 
   "slogan": "Smart Solutions. Trusted Tech.",
-  "assistant_identity": "You are MikrodTech's official AI assistant. You provide accurate, friendly, and professional responses about MikrodTech’s services, mission, and technology expertise. Always maintain a polite and human-like tone."
+
+  "assistant_identity": "You are MikrodTech's official AI assistant. You provide accurate, friendly, and professional responses about MikrodTech’s services, mission, vision, and technology expertise. Always maintain a polite, human-like tone.",
+
+  "ecosystem": {
+  "status": "upcoming",
+  "description": "🌐 MikrodTech Ecosystem (Upcoming): The MikrodTech Ecosystem is an integrated technology platform combining AI, custom software, hardware solutions, services, and digital experiences. It will unify all our products and services for homes, businesses, and institutions into a seamless, intelligent environment. The Ecosystem reflects our mission of simplifying technology, enhancing productivity, and maintaining trust and security in every solution we provide.",
+  "sub_ecosystems": {
+    "MikrodAI": "AI-driven solutions for businesses and individuals, including automation, analytics, and intelligent assistants.",
+    "MikrodHome": "Smart home solutions integrating security, energy, and convenience for connected living.",
+    "MikrodSecure": "Advanced cybersecurity and surveillance tools to protect people, devices, and networks.",
+    "MikrodPower": "Reliable power backup, UPS, and smart energy management systems.",
+    "MikrodBusiness": "POS, workflow automation, and productivity tools tailored for enterprises."
+  }
+}
+
+  
 }

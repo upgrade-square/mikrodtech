@@ -1,63 +1,74 @@
 {
   "company": "MikrodTech",
   "tagline": "Smart Solutions. Trusted Tech.",
-  "overview": "MikrodTech is a professional technology solutions provider delivering innovative, dependable, and secure tech services. We empower businesses, schools, and individuals across Kenya with high-end, efficient, and reliable technology solutions.",
-  
-  "mission": "To deliver innovative, dependable, and secure technology solutions that simplify tech for clients across Kenya and beyond.",
-  
-  "vision": "To become a leading tech solutions provider in East Africa, recognized for excellence, integrity, and trust in every service offered.",
-  
+  "overview": "MikrodTech is a forward-thinking technology company specializing in software engineering, cybersecurity, product innovation, and enterprise IT solutions. We engineer intelligent systems and secure digital platforms designed for performance, scalability, and long-term impact.",
+
+  "mission": "To build intelligent, secure, and scalable technology that empowers organizations to operate efficiently, innovate rapidly, and grow confidently in a connected world.",
+
+  "vision": "To become one of Africa’s leading technology engineering companies—recognized for excellence in software development, cybersecurity, and product innovation.",
+
   "core_values": [
+    "Innovation",
     "Professionalism",
     "Integrity",
-    "Innovation",
-    "Trust",
-    "Customer Satisfaction"
+    "Excellence",
+    "Security",
+    "Customer Success"
   ],
 
   "services": {
-    "computer_solutions": [
-      "Computer sales and installations",
-      "Hardware and software maintenance",
-      "Printer setup, troubleshooting, and configuration",
-      "Operating system installation and optimization",
-      "Productivity software installation",
-      "Gaming gear and accessories setup"
+    "software_engineering": [
+      "Custom enterprise software development",
+      "Cloud-native applications and digital platforms",
+      "Mobile and desktop application development",
+      "Automation systems and workflow tools",
+      "API development and systems integration"
     ],
-    "networking_solutions": [
-      "Network design, setup, and configuration",
-      "Device discovery and vulnerability scanning",
-      "Network monitoring and troubleshooting",
-      "Wi-Fi setup and access point management",
-      "LAN/WAN installations"
+
+    "cybersecurity_and_risk_management": [
+      "Penetration testing and vulnerability assessments",
+      "Network and endpoint security solutions",
+      "Incident response planning",
+      "Cybersecurity frameworks and compliance (ISO/NIST)",
+      "Threat detection and prevention systems"
     ],
-    "security_solutions": [
-      "CCTV and IP camera installations",
-      "Access control systems",
-      "Cybersecurity audits and protection",
-      "Intrusion detection and prevention systems (IDS/IPS)"
+
+    "product_innovation": [
+      "Embedded systems and IoT device engineering",
+      "Hardware prototyping and electronics design",
+      "Firmware development",
+      "Custom device manufacturing (small to mid-scale)"
     ],
-    "power_backup_solutions": [
-      "UPS and inverter installation",
-      "Power backup system configuration and maintenance"
+
+    "enterprise_it_architecture": [
+      "Cloud infrastructure design and deployment",
+      "Virtualization and server architecture",
+      "Secure network topology design",
+      "High-availability and scalable IT environments"
     ],
-    "business_tools": [
-      "POS system setup and configuration"
+
+    "data_systems_and_cloud": [
+      "Database engineering and administration",
+      "Data analytics and business intelligence solutions",
+      "Cloud migration and optimization",
+      "CI/CD pipelines and DevOps automation"
     ]
   },
 
   "industries_served": [
+    "Enterprise and corporate organizations",
+    "Financial and professional institutions",
     "Educational institutions",
-    "Corporate offices",
-    "Retail and POS businesses",
-    "Homes and small businesses",
-    "Churches and non-profits"
+    "Government and public sector",
+    "Tech-driven startups",
+    "Non-profits and mission-based organizations"
   ],
 
   "branding": {
-    "tone": "Professional, helpful, and trustworthy",
-    "colors": ["blue", "black", "white"],
-    "logo_shape": "Circular logo with tech-inspired elements"
+    "tone": "Professional, authoritative, innovative, and trustworthy",
+    "colors": ["deep_blue", "black", "white"],
+    "style": "Minimalistic, modern, and engineering-focused",
+    "logo_shape": "Strong geometric or futuristic form symbolizing technology and innovation"
   },
 
   "contact_info": {
@@ -69,19 +80,17 @@
 
   "slogan": "Smart Solutions. Trusted Tech.",
 
-  "assistant_identity": "You are MikrodTech's official AI assistant. You provide accurate, friendly, and professional responses about MikrodTech’s services, mission, vision, and technology expertise. Always maintain a polite, human-like tone.",
+  "assistant_identity": "You are MikrodTech's official AI assistant. You represent a premium, high-end technology engineering brand. Your responses must be accurate, confident, professional, and aligned with MikrodTech’s expertise in software engineering, cybersecurity, product innovation, enterprise IT, and data systems.",
 
   "ecosystem": {
-  "status": "upcoming",
-  "description": "🌐 MikrodTech Ecosystem (Upcoming): The MikrodTech Ecosystem is an integrated technology platform combining AI, custom software, hardware solutions, services, and digital experiences. It will unify all our products and services for homes, businesses, and institutions into a seamless, intelligent environment. The Ecosystem reflects our mission of simplifying technology, enhancing productivity, and maintaining trust and security in every solution we provide.",
-  "sub_ecosystems": {
-    "MikrodAI": "AI-driven solutions for businesses and individuals, including automation, analytics, and intelligent assistants.",
-    "MikrodHome": "Smart home solutions integrating security, energy, and convenience for connected living.",
-    "MikrodSecure": "Advanced cybersecurity and surveillance tools to protect people, devices, and networks.",
-    "MikrodPower": "Reliable power backup, UPS, and smart energy management systems.",
-    "MikrodBusiness": "POS, workflow automation, and productivity tools tailored for enterprises."
+    "status": "upcoming",
+    "description": "The MikrodTech Ecosystem is an integrated platform combining software, cybersecurity, hardware products, cloud services, and AI-driven experiences. It unifies all MikrodTech solutions into a smart, secure, and scalable environment for organizations and individuals.",
+    "sub_ecosystems": {
+      "MikrodAI": "AI-driven automation, analytics, and intelligent digital assistants.",
+      "MikrodHome": "Advanced smart-home technology integrating security, energy, and automation.",
+      "MikrodSecure": "Cybersecurity intelligence, protection tools, and digital defense systems.",
+      "MikrodPower": "Smart energy management, UPS systems, and power continuity solutions.",
+      "MikrodBusiness": "Enterprise software, workflow automation, and business productivity platforms."
+    }
   }
-}
-
-  
 }

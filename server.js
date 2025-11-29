@@ -41,29 +41,9 @@ const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
 });
 
-
-
-
 // ====================================================
 // 💬 CHATBOT ROUTE
 // ====================================================
-
-
-
-
-function formatServices(services) {
-  let result = "";
-  for (const category in services) {
-    result += `\n${category.replace(/_/g, " ").toUpperCase()}:\n`;
-    services[category].forEach(item => {
-      result += `- ${item}\n`;
-    });
-  }
-  return result;
-}
-
-
-
 app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
@@ -77,22 +57,22 @@ app.post("/chat", async (req, res) => {
 // --- Include company info as context ---
 const systemPrompt = `
 You are MikrodTech's official AI assistant.
-Use the following company information to answer professionally.
+Use the following company information to answer user questions accurately and professionally.
 
-Company: ${knowledgeData.company}
+Company name: ${knowledgeData.company}
 Tagline: ${knowledgeData.tagline}
 Mission: ${knowledgeData.mission}
 Vision: ${knowledgeData.vision}
-Core Values: ${knowledgeData.core_values?.join(", ")}
+Core values: ${knowledgeData.core_values?.join(", ")}
 
-SERVICES:
-${formatServices(knowledgeData.services)}
+Here is MikrodTech’s current services catalog:
+${JSON.stringify(knowledgeData.services, null, 2)}
 
 Contact: ${knowledgeData.contact_info?.phone}, ${knowledgeData.contact_info?.email}
 Tone: ${knowledgeData.branding?.tone}
 
-Keep replies concise, accurate, and aligned with MikrodTech’s modern technology focus.
-If a question is unrelated to MikrodTech, respond briefly and professionally.
+If the question is unrelated to MikrodTech, respond politely but briefly.
+Never make up information. Keep replies concise and professional.
 `;
 
 

@@ -41,9 +41,29 @@ const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
 });
 
+
+
+
 // ====================================================
 // 💬 CHATBOT ROUTE
 // ====================================================
+
+
+
+
+function formatServices(services) {
+  let result = "";
+  for (const category in services) {
+    result += `\n${category.replace(/_/g, " ").toUpperCase()}:\n`;
+    services[category].forEach(item => {
+      result += `- ${item}\n`;
+    });
+  }
+  return result;
+}
+
+
+
 app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
@@ -57,49 +77,22 @@ app.post("/chat", async (req, res) => {
 // --- Include company info as context ---
 const systemPrompt = `
 You are MikrodTech's official AI assistant.
-Use the following company information to answer user questions accurately and professionally.
+Use the following company information to answer professionally.
 
-Company name: ${knowledgeData.company}
+Company: ${knowledgeData.company}
 Tagline: ${knowledgeData.tagline}
 Mission: ${knowledgeData.mission}
 Vision: ${knowledgeData.vision}
-Core values: ${knowledgeData.core_values?.join(", ")}
+Core Values: ${knowledgeData.core_values?.join(", ")}
 
-Here is a structured overview of MikrodTech’s services:
-
-Computers & Hardware
-- Computer sales and installations
-- Hardware and software maintenance
-- Printer setup, troubleshooting, and configuration
-- Operating system installation and optimization
-- Productivity software installation
-- Gaming gear and accessories setup
-
-Networking & Internet
-- Network design, setup, and configuration
-- Device discovery and vulnerability scanning
-- Network monitoring and troubleshooting
-- Wi-Fi setup and access point management
-- LAN/WAN installations
-
-Security & Surveillance
-- CCTV and IP camera installations
-- Access control systems
-- Cybersecurity audits and protection
-- Intrusion detection and prevention systems (IDS/IPS)
-
-⚡ Power & Backup Solutions
-- UPS and inverter installation
-- Power backup system configuration and maintenance
-
-Business & POS
-- POS system setup and configuration
+SERVICES:
+${formatServices(knowledgeData.services)}
 
 Contact: ${knowledgeData.contact_info?.phone}, ${knowledgeData.contact_info?.email}
 Tone: ${knowledgeData.branding?.tone}
 
-If the question is unrelated to MikrodTech, respond politely but briefly.
-Never make up information. Keep replies concise and professional.
+Keep replies concise, accurate, and aligned with MikrodTech’s modern technology focus.
+If a question is unrelated to MikrodTech, respond briefly and professionally.
 `;
 
 

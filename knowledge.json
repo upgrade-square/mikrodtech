@@ -1,12 +1,13 @@
 {
   "company": "MikrodTech",
   "tagline": "Smart Solutions. Trusted Tech.",
-  "overview": "MikrodTech is a forward-thinking technology company specializing in software engineering, cybersecurity, product innovation, and enterprise IT solutions. We engineer intelligent systems and secure digital platforms designed for performance, scalability, and long-term impact.",
-
-  "mission": "To build intelligent, secure, and scalable technology that empowers organizations to operate efficiently, innovate rapidly, and grow confidently in a connected world.",
-
-  "vision": "To become one of Africa’s leading technology engineering companies—recognized for excellence in software development, cybersecurity, and product innovation.",
-
+  
+  "overview": "MikrodTech is a forward-thinking technology engineering company specializing in software development, cybersecurity, product innovation, and enterprise IT systems. We build intelligent, secure, and scalable solutions designed for high-performance organizations and future-ready institutions.",
+  
+  "mission": "To engineer secure, intelligent, and scalable technology that empowers organizations to operate efficiently, innovate confidently, and grow sustainably in a digital-first world.",
+  
+  "vision": "To become one of Africa’s most respected technology engineering companies—recognized globally for excellence in software systems, cybersecurity leadership, and innovative product development.",
+  
   "core_values": [
     "Innovation",
     "Professionalism",
@@ -19,39 +20,39 @@
   "services": {
     "software_engineering": [
       "Custom enterprise software development",
-      "Cloud-native applications and digital platforms",
+      "Cloud-native systems and digital platforms",
       "Mobile and desktop application development",
-      "Automation systems and workflow tools",
+      "Workflow automation and intelligent systems",
       "API development and systems integration"
     ],
 
     "cybersecurity_and_risk_management": [
       "Penetration testing and vulnerability assessments",
-      "Network and endpoint security solutions",
-      "Incident response planning",
-      "Cybersecurity frameworks and compliance (ISO/NIST)",
-      "Threat detection and prevention systems"
+      "Network and endpoint protection architecture",
+      "Incident response and digital risk mitigation",
+      "Security frameworks and compliance (ISO/NIST)",
+      "Threat detection, monitoring, and prevention"
     ],
 
     "product_innovation": [
-      "Embedded systems and IoT device engineering",
-      "Hardware prototyping and electronics design",
-      "Firmware development",
-      "Custom device manufacturing (small to mid-scale)"
+      "Embedded systems and IoT engineering",
+      "Electronics design and hardware prototyping",
+      "Firmware development and custom device engineering",
+      "Specialized tech-product manufacturing (small to mid-scale)"
     ],
 
     "enterprise_it_architecture": [
-      "Cloud infrastructure design and deployment",
-      "Virtualization and server architecture",
-      "Secure network topology design",
-      "High-availability and scalable IT environments"
+      "Cloud infrastructure architecture and deployment",
+      "Server, virtualization, and datacenter systems",
+      "Secure and scalable network topology design",
+      "High-availability and performance-driven IT environments"
     ],
 
     "data_systems_and_cloud": [
-      "Database engineering and administration",
-      "Data analytics and business intelligence solutions",
-      "Cloud migration and optimization",
-      "CI/CD pipelines and DevOps automation"
+      "Database engineering and optimization",
+      "Data analytics and business intelligence platforms",
+      "Cloud migration, optimization, and management",
+      "CI/CD pipelines, DevOps workflows, and automation"
     ]
   },
 
@@ -60,15 +61,15 @@
     "Financial and professional institutions",
     "Educational institutions",
     "Government and public sector",
-    "Tech-driven startups",
-    "Non-profits and mission-based organizations"
+    "Technology-driven startups",
+    "Non-profits and mission-critical organizations"
   ],
 
   "branding": {
     "tone": "Professional, authoritative, innovative, and trustworthy",
     "colors": ["deep_blue", "black", "white"],
-    "style": "Minimalistic, modern, and engineering-focused",
-    "logo_shape": "Strong geometric or futuristic form symbolizing technology and innovation"
+    "style": "Minimalistic, modern, precise, and engineering-focused",
+    "logo_shape": "Geometric or futuristic form representing technology, precision, and innovation"
   },
 
   "contact_info": {
@@ -80,17 +81,18 @@
 
   "slogan": "Smart Solutions. Trusted Tech.",
 
-  "assistant_identity": "You are MikrodTech's official AI assistant. You represent a premium, high-end technology engineering brand. Your responses must be accurate, confident, professional, and aligned with MikrodTech’s expertise in software engineering, cybersecurity, product innovation, enterprise IT, and data systems.",
-
+  "assistant_identity": "You are MikrodTech's official AI assistant. You represent a premium, high-end technology engineering brand. Your responses must be accurate, confident, and professional—reflecting MikrodTech’s expertise in software engineering, cybersecurity, product innovation, enterprise IT, and data systems.",
+  
   "ecosystem": {
     "status": "upcoming",
-    "description": "The MikrodTech Ecosystem is an integrated platform combining software, cybersecurity, hardware products, cloud services, and AI-driven experiences. It unifies all MikrodTech solutions into a smart, secure, and scalable environment for organizations and individuals.",
+    "description": "The MikrodTech Ecosystem is an integrated technology environment combining software platforms, cybersecurity intelligence, product innovation, cloud infrastructure, and AI-driven services—designed to deliver smart, secure, and scalable solutions across organizations and homes.",
+    
     "sub_ecosystems": {
-      "MikrodAI": "AI-driven automation, analytics, and intelligent digital assistants.",
-      "MikrodHome": "Advanced smart-home technology integrating security, energy, and automation.",
-      "MikrodSecure": "Cybersecurity intelligence, protection tools, and digital defense systems.",
-      "MikrodPower": "Smart energy management, UPS systems, and power continuity solutions.",
-      "MikrodBusiness": "Enterprise software, workflow automation, and business productivity platforms."
+      "MikrodAI": "AI automation, predictive analytics, and intelligent digital assistants.",
+      "MikrodHome": "Smart-home security, automation, and energy efficiency technologies.",
+      "MikrodSecure": "Cybersecurity platforms, digital defense tools, and threat intelligence systems.",
+      "MikrodPower": "Smart energy management, UPS systems, and power reliability solutions.",
+      "MikrodBusiness": "Enterprise software suites, workflow automation, and business productivity tools."
     }
   }
 }

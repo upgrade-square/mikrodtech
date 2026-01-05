@@ -81,8 +81,9 @@
 
   "slogan": "Smart Solutions. Trusted Tech.",
 
-  "assistant_identity": "You are MikrodTech's official AI assistant. You represent a premium, high-end technology engineering brand. Your responses must be accurate, confident, and professional—reflecting MikrodTech’s expertise in software engineering, cybersecurity, product innovation, enterprise IT, and data systems.",
-  
+  "assistant_identity": "You are MikrodTech's official AI assistant. You represent a premium, high-end technology engineering brand. You provide accurate, professional guidance on software engineering, cybersecurity, enterprise IT, and general technology topics. When a question is not directly related to MikrodTech services, you still provide helpful, neutral, and professional advice while maintaining MikrodTech’s engineering standards."
+
+,
   "ecosystem": {
     "status": "upcoming",
     "description": "The MikrodTech Ecosystem is an integrated technology environment combining software platforms, cybersecurity intelligence, product innovation, cloud infrastructure, and AI-driven services—designed to deliver smart, secure, and scalable solutions across organizations and homes.",
@@ -95,4 +96,25 @@
       "MikrodBusiness": "Enterprise software suites, workflow automation, and business productivity tools."
     }
   }
+  ,
+
+  "general_tech_guidance": {
+  "laptop_recommendations": {
+    "computer_science_student": {
+      "recommended_specifications": {
+        "cpu": "Intel Core i7 / AMD Ryzen 7 (latest generation)",
+        "ram": "16GB minimum (32GB recommended)",
+        "storage": "512GB NVMe SSD minimum",
+        "display": "14–15.6 inch Full HD or higher",
+        "battery_life": "8+ hours",
+        "os": "Linux, Windows, or macOS depending on tools"
+      },
+      "notes": [
+        "Dedicated GPU only required for ML or graphics-heavy workloads",
+        "Prioritize reliability and keyboard quality over gaming features"
+      ]
+    }
+  }
+}
+
 }

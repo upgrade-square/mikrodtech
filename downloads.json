@@ -1,4 +1,11 @@
 {
   "mdt-remind": 1200,
-  "reviews": []
+  "reviews": [
+    {
+      "name": "Daniel",
+      "rating": 5,
+      "comment": "Very helpful reminder app",
+      "date": "March 14, 2026"
+    }
+  ]
 }

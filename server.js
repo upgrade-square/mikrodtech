@@ -210,15 +210,29 @@ app.get("/reviews/mdt-remind", (req, res) => {
 
 // POST new review
 app.post("/reviews/mdt-remind", (req, res) => {
-  const { rating, comment } = req.body;
-  if (!rating || !comment) return res.status(400).json({ error: "Rating and comment are required." });
+  const { name, rating, comment } = req.body;
 
-  const review = { rating, comment, date: new Date().toISOString() };
+  if (!name || !rating || !comment) {
+    return res.status(400).json({ error: "Name, rating and comment are required." });
+  }
+
+  const review = {
+    name: name.trim(),
+    rating: Number(rating),
+    comment: comment.trim(),
+    date: new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    })
+  };
+
   downloadData.reviews.push(review);
   saveDownloadData(downloadData);
 
-  res.json({ success: true });
+  res.json({ success: true, review });
 });
+
 
 // ====================================================
 // =====================
@@ -266,6 +280,13 @@ app.get("/api/visits", (req, res) => { res.json(visitData); });
 // ====================================================
 // 🚀 START SERVER
 // ====================================================
+// Serve MDT Remind without .html
+app.get("/mdt-remind", (req, res) => {
+  res.sendFile(path.join(process.cwd(), "frontend/mdt-remind.html"));
+});
+
+
+
 app.listen(PORT, () => {
   console.log(`🚀 MikrodTech chatbot server running on port ${PORT}`);
 });

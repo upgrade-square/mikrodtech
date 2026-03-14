@@ -5,7 +5,8 @@ import dotenv from "dotenv";
 import fs from "fs";
 import OpenAI from "openai";
 import { randomBytes } from "crypto";
-import { Readable } from "stream"; // Keep this import here
+import { Readable } from "stream"; 
+import path from "path";
 
 // ✅ Load environment variables
 dotenv.config({ path: "./.env" });
@@ -24,6 +25,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
+app.use(express.static("public")); // Serve APK and static files
 
 // --- Load MikrodTech Knowledge Base ---
 let knowledgeData = {};
@@ -45,23 +47,17 @@ const openai = new OpenAI({
   },
 });
 
-
-
 // ====================================================
 // 💬 CHATBOT ROUTE
 // ====================================================
 app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
-
-    if (!message || message.trim() === "") {
-      return res.status(400).json({ reply: "Please provide a valid message." });
-    }
+    if (!message || message.trim() === "") return res.status(400).json({ reply: "Please provide a valid message." });
 
     console.log(`💬 User: ${message}`);
 
-// --- Include company info as context ---
-const systemPrompt = `
+    const systemPrompt = `
 You are MikrodTech's official AI assistant.
 Use the following company information to answer user questions accurately and professionally.
 
@@ -81,44 +77,25 @@ If the question is unrelated to MikrodTech, respond politely but briefly.
 Never make up information. Keep replies concise and professional.
 `;
 
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: message },
+      ],
+      temperature: 0.7,
+      max_tokens: 1200,
+    });
 
-  const completion = await openai.chat.completions.create({
-  model: "gpt-4o-mini",
-  messages: [
-    { role: "system", content: systemPrompt },
-    { role: "user", content: message },
-  ],
-  temperature: 0.7,
-  max_tokens: 1200, // <-- increase for long responses
-});
-
-
-    let reply =
-      completion.choices?.[0]?.message?.content?.trim() ||
-      "Sorry, I didn’t quite catch that.";
-
+    let reply = completion.choices?.[0]?.message?.content?.trim() || "Sorry, I didn’t quite catch that.";
     reply = reply.replace(/<\/?s>/gi, "").trim();
 
     console.log(`🤖 Reply: ${reply}`);
     res.json({ reply });
 
   } catch (error) {
-    console.error("❌ Error generating response (full):", error);
-
-    if (error?.response) {
-      console.error("❌ error.response.status:", error.response.status);
-      console.error("❌ error.response.data:", error.response.data);
-    }
-
-    if (!process.env.OPENROUTER_API_KEY) {
-      console.error("❌ OPENROUTER_API_KEY is NOT set (missing in .env)");
-    } else {
-      console.error("🔑 OPENROUTER_API_KEY appears set.");
-    }
-
-    res.status(500).json({
-      reply: "⚠️ Sorry, I'm having trouble responding right now. Please try again shortly.",
-    });
+    console.error("❌ Error generating response:", error);
+    res.status(500).json({ reply: "⚠️ Sorry, I'm having trouble responding right now. Please try again shortly." });
   }
 });
 
@@ -128,6 +105,7 @@ Never make up information. Keep replies concise and professional.
 app.get("/", (req, res) => {
   res.send("✅ MikrodTech Chatbot Server is running with Knowledge Base!");
 });
+
 // ====================================================
 // 🚀 DOWNLOAD SPEED TEST ROUTE
 // ====================================================
@@ -140,7 +118,7 @@ app.get("/api/speedtest/download", (req, res) => {
     "Cache-Control": "no-store",
   });
 
-  const chunkSize = 128 * 1024; // 128 KB
+  const chunkSize = 128 * 1024;
   let sent = 0;
 
   const stream = new Readable({
@@ -155,7 +133,6 @@ app.get("/api/speedtest/download", (req, res) => {
   stream.pipe(res);
 });
 
-
 // ====================================================
 // ⚡ UPLOAD SPEED TEST ROUTE
 // ====================================================
@@ -164,18 +141,11 @@ app.post("/api/speedtest/upload", async (req, res) => {
     const sizeMB = Math.min(Math.max(parseInt(req.query.size) || 10, 1), 100);
     const chunks = [];
 
-    // Collect uploaded data
-    req.on("data", (chunk) => {
-      chunks.push(chunk);
-    });
-
+    req.on("data", (chunk) => { chunks.push(chunk); });
     req.on("end", () => {
       const totalBytes = Buffer.concat(chunks).length;
       console.log(`📤 Received ${(totalBytes / (1024 * 1024)).toFixed(2)} MB upload`);
-      res.json({
-        status: "ok",
-        receivedMB: (totalBytes / (1024 * 1024)).toFixed(2)
-      });
+      res.json({ status: "ok", receivedMB: (totalBytes / (1024 * 1024)).toFixed(2) });
     });
   } catch (err) {
     console.error("Upload test error:", err);
@@ -183,33 +153,82 @@ app.post("/api/speedtest/upload", async (req, res) => {
   }
 });
 
-
 // ====================================================
-// ⚡ PING SPEED TEST ROUTE (Simulated realistic latency)
+// ⚡ PING SPEED TEST ROUTE
 // ====================================================
 app.get("/api/speedtest/ping", async (req, res) => {
-  // Simulate realistic latency between 10–60ms
   const simulatedLatency = Math.random() * 50 + 10;
-
-  // Wait for the simulated latency
   await new Promise((resolve) => setTimeout(resolve, simulatedLatency));
-
-  // Respond with latency info
   res.json({ message: "pong", latency: simulatedLatency.toFixed(2) });
 });
 
+// ====================================================
+// ✅ MDT REMIND DOWNLOADS & REVIEWS
+// ====================================================
+const DOWNLOAD_FILE = path.join(process.cwd(), "downloads.json");
 
+function loadDownloadData() {
+  try {
+    if (!fs.existsSync(DOWNLOAD_FILE)) {
+      const initialData = { "mdt-remind": 1200, reviews: [] };
+      fs.writeFileSync(DOWNLOAD_FILE, JSON.stringify(initialData, null, 2));
+      return initialData;
+    }
+    return JSON.parse(fs.readFileSync(DOWNLOAD_FILE, "utf8"));
+  } catch (err) {
+    console.error("Error loading downloads.json:", err);
+    return { "mdt-remind": 1200, reviews: [] };
+  }
+}
 
+function saveDownloadData(data) {
+  try {
+    fs.writeFileSync(DOWNLOAD_FILE, JSON.stringify(data, null, 2));
+  } catch (err) {
+    console.error("Error saving downloads.json:", err);
+  }
+}
 
+let downloadData = loadDownloadData();
+
+// GET current download count
+app.get("/downloads/mdt-remind", (req, res) => {
+  res.json({ count: downloadData["mdt-remind"] });
+});
+
+// POST increment download
+app.post("/downloads/mdt-remind", (req, res) => {
+  downloadData["mdt-remind"]++;
+  saveDownloadData(downloadData);
+  res.json({ count: downloadData["mdt-remind"] });
+});
+
+// GET reviews
+app.get("/reviews/mdt-remind", (req, res) => {
+  res.json(downloadData.reviews || []);
+});
+
+// POST new review
+app.post("/reviews/mdt-remind", (req, res) => {
+  const { rating, comment } = req.body;
+  if (!rating || !comment) return res.status(400).json({ error: "Rating and comment are required." });
+
+  const review = { rating, comment, date: new Date().toISOString() };
+  downloadData.reviews.push(review);
+  saveDownloadData(downloadData);
+
+  res.json({ success: true });
+});
+
+// ====================================================
 // =====================
 // WEBSITE VISIT COUNTER
 // =====================
-import path from "path";
 
-// File where visit counts are stored
+
 const COUNTER_FILE = path.join(process.cwd(), "visits.json");
 
-// Function: load or initialize visit data
+
 function loadVisitData() {
   try {
     if (!fs.existsSync(COUNTER_FILE)) {
@@ -217,7 +236,6 @@ function loadVisitData() {
       fs.writeFileSync(COUNTER_FILE, JSON.stringify(initialData, null, 2));
       return initialData;
     }
-
     const raw = fs.readFileSync(COUNTER_FILE, "utf8");
     return JSON.parse(raw || '{"total":0,"daily":{}}');
   } catch (err) {
@@ -226,19 +244,13 @@ function loadVisitData() {
   }
 }
 
-// Function: save visit data safely
 function saveVisitData(data) {
-  try {
-    fs.writeFileSync(COUNTER_FILE, JSON.stringify(data, null, 2));
-  } catch (err) {
-    console.error("Error saving visits.json:", err);
-  }
+  try { fs.writeFileSync(COUNTER_FILE, JSON.stringify(data, null, 2)); }
+  catch (err) { console.error("Error saving visits.json:", err); }
 }
 
-// Load current visit data
 let visitData = loadVisitData();
 
-// Middleware: count visits
 app.use((req, res, next) => {
   if (req.path === "/" || req.path.endsWith(".html")) {
     const today = new Date().toISOString().split("T")[0];
@@ -249,12 +261,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// API route to view visit stats (for admin panel)
-app.get("/api/visits", (req, res) => {
-  res.json(visitData);
-});
-
-
+app.get("/api/visits", (req, res) => { res.json(visitData); });
 
 // ====================================================
 // 🚀 START SERVER
@@ -262,4 +269,4 @@ app.get("/api/visits", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 MikrodTech chatbot server running on port ${PORT}`);
 });
-// redeploy trigger Sun Nov  2 22:20:19 EAT 2025
+

@@ -285,7 +285,9 @@ app.get("/mdt-remind", (req, res) => {
   res.sendFile(path.join(process.cwd(), "frontend/mdt-remind.html"));
 });
 
-
+app.get("/privacy", (req, res) => {
+  res.sendFile(path.join(process.cwd(), "frontend/privacy.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`🚀 MikrodTech chatbot server running on port ${PORT}`);

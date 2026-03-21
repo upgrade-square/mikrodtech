@@ -204,14 +204,18 @@ app.post("/downloads/mdt-remind", (req, res) => {
 });
 
 
-// Serve MDT Remind APK and track downloads
 app.get("/download/mdt-remind", (req, res) => {
   // Increment download counter
   downloadData["mdt-remind"]++;
   saveDownloadData(downloadData);
 
-  // Absolute path to your APK
-  const filePath = path.join(__dirname, "../mikrodtech-frontend/MDT-Remind.apk");
+  // Correct path: APK is in 'frontend' folder
+  const filePath = path.join(__dirname, "frontend/MDT-Remind.apk");
+
+  if (!fs.existsSync(filePath)) {
+    console.error("APK file not found:", filePath);
+    return res.status(404).send("APK file not found");
+  }
 
   // Send the file
   res.download(filePath, "MDT-Remind.apk", (err) => {
@@ -228,7 +232,7 @@ app.get("/reviews/mdt-remind", (req, res) => {
   res.json(downloadData.reviews || []);
 });
 
-// POST new review
+// POST new review //
 app.post("/reviews/mdt-remind", (req, res) => {
   const { name, rating, comment } = req.body;
 
@@ -314,3 +318,4 @@ app.listen(PORT, () => {
   console.log(`🚀 MikrodTech chatbot server running on port ${PORT}`);
 });
 
+// IN GOD I PUT MY TRUST. Christ Is Lord

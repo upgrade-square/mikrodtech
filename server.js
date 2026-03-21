@@ -203,6 +203,26 @@ app.post("/downloads/mdt-remind", (req, res) => {
   res.json({ count: downloadData["mdt-remind"] });
 });
 
+
+// Serve MDT Remind APK and track downloads
+app.get("/download/mdt-remind", (req, res) => {
+  // Increment download counter
+  downloadData["mdt-remind"]++;
+  saveDownloadData(downloadData);
+
+  // Absolute path to your APK
+  const filePath = path.join(__dirname, "../mikrodtech-frontend/MDT-Remind.apk");
+
+  // Send the file
+  res.download(filePath, "MDT-Remind.apk", (err) => {
+    if (err) {
+      console.error("Download error:", err);
+      res.status(500).send("Download failed.");
+    }
+  });
+});
+
+
 // GET reviews
 app.get("/reviews/mdt-remind", (req, res) => {
   res.json(downloadData.reviews || []);
@@ -220,19 +240,15 @@ app.post("/reviews/mdt-remind", (req, res) => {
     name: name.trim(),
     rating: Number(rating),
     comment: comment.trim(),
-    date: new Date().toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    })
+    date: new Date().toISOString() // store ISO date
   };
 
   downloadData.reviews.push(review);
   saveDownloadData(downloadData);
 
   res.json({ success: true, review });
-});
 
+});
 
 // ====================================================
 // =====================
@@ -280,9 +296,14 @@ app.get("/api/visits", (req, res) => { res.json(visitData); });
 // ====================================================
 // 🚀 START SERVER
 // ====================================================
+
 // Serve MDT Remind without .html
 app.get("/mdt-remind", (req, res) => {
   res.sendFile(path.join(process.cwd(), "frontend/mdt-remind.html"));
+});
+// Serve Privacy Policy without .html
+app.get("/privacy", (req, res) => {
+  res.sendFile(path.join(process.cwd(), "frontend/privacy.html"));
 });
 
 app.get("/privacy", (req, res) => {

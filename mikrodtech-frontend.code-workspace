@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../Desktop/mikrodtech-frontend"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../Desktop/mikrodtech"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "mikrodtech-frontend"
+	}
+}

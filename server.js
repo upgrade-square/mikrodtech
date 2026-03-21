@@ -210,7 +210,7 @@ app.get("/download/mdt-remind", (req, res) => {
   saveDownloadData(downloadData);
 
   // Correct path: APK is in 'frontend' folder
-  const filePath = path.join(__dirname, "frontend/MDT-Remind.apk");
+const filePath = path.join(__dirname, "../mikrodtech-frontend/MDT-Remind.apk");
 
   if (!fs.existsSync(filePath)) {
     console.error("APK file not found:", filePath);

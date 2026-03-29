@@ -2,11 +2,11 @@
   "company": "MikrodTech",
   "tagline": "Smart Solutions. Trusted Tech.",
   
-  "overview": "MikrodTech is a forward-thinking technology engineering company specializing in software development, cybersecurity, product innovation, and enterprise IT systems. We build intelligent, secure, and scalable solutions designed for high-performance organizations and future-ready institutions.",
+  "overview": "MikrodTech is a forward-thinking technology engineering and solutions company specializing in software development, cybersecurity, networking, enterprise IT systems, and smart technology solutions. We deliver intelligent, secure, and scalable systems for businesses, institutions, and modern environments.",
   
-  "mission": "To engineer secure, intelligent, and scalable technology that empowers organizations to operate efficiently, innovate confidently, and grow sustainably in a digital-first world.",
+  "mission": "To engineer secure, intelligent, and scalable technology solutions that empower organizations, institutions, and individuals to operate efficiently, innovate confidently, and grow sustainably in a digital-first world.",
   
-  "vision": "To become one of Africa’s most respected technology engineering companies—recognized globally for excellence in software systems, cybersecurity leadership, and innovative product development.",
+  "vision": "To become one of Africa’s most respected technology engineering and solutions companies—recognized globally for excellence in software systems, cybersecurity leadership, and integrated technology solutions.",
   
   "core_values": [
     "Innovation",
@@ -34,6 +34,29 @@
       "Threat detection, monitoring, and prevention"
     ],
 
+    "networking_and_infrastructure": [
+      "Network design, setup, and optimization",
+      "Structured cabling and infrastructure deployment",
+      "Router, switch, and firewall configuration",
+      "Wireless (Wi-Fi) solutions for homes and enterprises",
+      "Network monitoring and maintenance"
+    ],
+
+    "hardware_and_device_solutions": [
+      "Supply and installation of computers and laptops",
+      "Printers, scanners, and office equipment",
+      "POS systems and self-service solutions",
+      "CCTV and smart security systems",
+      "Gaming equipment and productivity devices"
+    ],
+
+    "power_and_backup_systems": [
+      "UPS (Uninterruptible Power Supply) solutions",
+      "Inverter and backup power systems",
+      "Power protection and surge solutions",
+      "Energy-efficient technology systems"
+    ],
+
     "product_innovation": [
       "Embedded systems and IoT engineering",
       "Electronics design and hardware prototyping",
@@ -56,12 +79,70 @@
     ]
   },
 
+  "products": {
+    "computing_devices": [
+      "Laptops (business, student, and high-performance)",
+      "Desktop computers and workstations",
+      "All-in-one PCs"
+    ],
+    "networking_equipment": [
+      "Routers and enterprise-grade switches",
+      "Wireless access points (Wi-Fi systems)",
+      "Firewalls and network security appliances"
+    ],
+    "security_systems": [
+      "CCTV surveillance systems",
+      "Biometric access control systems",
+      "Smart security and alarm systems"
+    ],
+    "business_systems": [
+      "POS (Point of Sale) systems",
+      "Self-service kiosks",
+      "Barcode scanners and receipt printers"
+    ],
+    "office_equipment": [
+      "Printers and scanners",
+      "Photocopiers",
+      "Office productivity devices"
+    ],
+    "power_solutions": [
+      "UPS systems",
+      "Inverters",
+      "Backup batteries and power stabilization devices"
+    ],
+    "gaming_and_productivity": [
+      "Gaming PCs and accessories",
+      "Monitors and peripherals",
+      "Keyboards, mice, and ergonomic tools"
+    ]
+  },
+
+  "tech_recommendations": {
+    "description": "MikrodTech provides expert technology recommendations tailored to user needs, budgets, and use-cases.",
+    
+    "categories": {
+      "laptops": "Recommendations based on student, developer, and professional needs.",
+      "networking": "Routers, switches, and Wi-Fi systems for home and enterprise.",
+      "security": "CCTV and surveillance systems based on environment and risk level.",
+      "business_systems": "POS and retail solutions tailored to business size.",
+      "power": "UPS and backup systems based on load and uptime requirements"
+    },
+
+    "approach": [
+      "Understand user needs and budget",
+      "Recommend scalable and reliable solutions",
+      "Prioritize performance, security, and efficiency",
+      "Ensure future-proof and upgrade-ready systems"
+    ]
+  },
+
   "industries_served": [
     "Enterprise and corporate organizations",
     "Financial and professional institutions",
-    "Educational institutions",
+    "Educational institutions and academies",
     "Government and public sector",
     "Technology-driven startups",
+    "Retail and commercial businesses",
     "Non-profits and mission-critical organizations"
   ],
 
@@ -75,46 +156,60 @@
   "contact_info": {
     "email": "info@mikrodtech.co.ke",
     "phone": "+254769329029",
+    "whatsapp": "+254705826780",
     "linkedin": "https://www.linkedin.com/company/mikrodtech",
     "location": "Kenya"
   },
 
+  "social_media": {
+    "availability": "MikrodTech is available across all major social media platforms.",
+    "platforms": [
+      "LinkedIn",
+      "X (Twitter)",
+      "Instagram",
+      "Facebook",
+      "TikTok",
+      "YouTube",
+      "WhatsApp Business"
+    ],
+    "handle": "MikrodTech",
+    "whatsapp_number": "+254705826780"
+  },
+
   "slogan": "Smart Solutions. Trusted Tech.",
 
-  "assistant_identity": "You are MikrodTech's official AI assistant. You represent a premium, high-end technology engineering brand. You provide accurate, professional guidance on software engineering, cybersecurity, enterprise IT, and general technology topics. When a question is not directly related to MikrodTech services, you still provide helpful, neutral, and professional advice while maintaining MikrodTech’s engineering standards."
+  "assistant_identity": "You are MikrodTech's official AI assistant. You represent a premium, high-end technology engineering and solutions brand. You provide expert guidance on software engineering, cybersecurity, networking, enterprise IT, and technology systems. You also recommend the best devices, infrastructure, and business systems based on user needs, ensuring professional, accurate, and practical advice at all times.",
 
-,
   "ecosystem": {
     "status": "upcoming",
-    "description": "The MikrodTech Ecosystem is an integrated technology environment combining software platforms, cybersecurity intelligence, product innovation, cloud infrastructure, and AI-driven services—designed to deliver smart, secure, and scalable solutions across organizations and homes.",
+    "description": "The MikrodTech Ecosystem is an integrated technology environment combining software platforms, cybersecurity intelligence, smart devices, networking infrastructure, power systems, and AI-driven services—designed to deliver smart, secure, and scalable solutions across businesses, institutions, and homes.",
     
     "sub_ecosystems": {
       "MikrodAI": "AI automation, predictive analytics, and intelligent digital assistants.",
-      "MikrodHome": "Smart-home security, automation, and energy efficiency technologies.",
+      "MikrodHome": "Smart-home security, automation, surveillance, and energy efficiency technologies.",
       "MikrodSecure": "Cybersecurity platforms, digital defense tools, and threat intelligence systems.",
       "MikrodPower": "Smart energy management, UPS systems, and power reliability solutions.",
-      "MikrodBusiness": "Enterprise software suites, workflow automation, and business productivity tools."
+      "MikrodBusiness": "Enterprise software, POS systems, workflow automation, and productivity tools."
     }
-  }
-  ,
+  },
 
   "general_tech_guidance": {
-  "laptop_recommendations": {
-    "computer_science_student": {
-      "recommended_specifications": {
-        "cpu": "Intel Core i7 / AMD Ryzen 7 (latest generation)",
-        "ram": "16GB minimum (32GB recommended)",
-        "storage": "512GB NVMe SSD minimum",
-        "display": "14–15.6 inch Full HD or higher",
-        "battery_life": "8+ hours",
-        "os": "Linux, Windows, or macOS depending on tools"
-      },
-      "notes": [
-        "Dedicated GPU only required for ML or graphics-heavy workloads",
-        "Prioritize reliability and keyboard quality over gaming features"
-      ]
+    "laptop_recommendations": {
+      "computer_science_student": {
+        "recommended_specifications": {
+          "cpu": "Intel Core i7 / AMD Ryzen 7 (latest generation)",
+          "ram": "16GB minimum (32GB recommended)",
+          "storage": "512GB NVMe SSD minimum",
+          "display": "14–15.6 inch Full HD or higher",
+          "battery_life": "8+ hours",
+          "os": "Linux, Windows, or macOS depending on tools"
+        },
+        "notes": [
+          "Dedicated GPU only required for machine learning, AI, or graphics-heavy workloads",
+          "Prioritize reliability, build quality, and keyboard comfort over gaming aesthetics",
+          "Ensure compatibility with development tools like Docker, IDEs, and virtualization"
+        ]
+      }
     }
   }
-}
-
 }

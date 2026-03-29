@@ -134,14 +134,17 @@ app.post("/downloads/mdt-remind", async (req, res) => {
   res.json({ count: row.count });
 });
 
-
-app.get("/download/mdt-remind", (req, res) => {
+app.get("/download/mdt-remind", async (req, res) => {
   try {
-    // Increment download count
-    downloadData["mdt-remind"]++;
-    saveDownloadData(downloadData);
+    const db = await dbPromise;
 
-    // File path (same folder as server.js)
+    // Increment download count
+    await db.run(`
+      INSERT INTO downloads(app, count) VALUES("mdt-remind",1)
+      ON CONFLICT(app) DO UPDATE SET count = count + 1
+    `);
+
+    // Path to APK in the same folder as server.js
     const filePath = path.join(process.cwd(), "MDT-Remind.apk");
 
     if (!fs.existsSync(filePath)) {
@@ -150,13 +153,11 @@ app.get("/download/mdt-remind", (req, res) => {
     }
 
     res.download(filePath, "MDT-Remind.apk");
-
   } catch (err) {
     console.error("Download error:", err);
     res.status(500).send("Download failed");
   }
 });
-
 
 
 

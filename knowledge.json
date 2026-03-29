@@ -7,6 +7,14 @@
   "mission": "To engineer secure, intelligent, and scalable technology solutions that empower organizations, institutions, and individuals to operate efficiently, innovate confidently, and grow sustainably in a digital-first world.",
   
   "vision": "To become one of Africa’s most respected technology engineering and solutions companies—recognized globally for excellence in software systems, cybersecurity leadership, and integrated technology solutions.",
+
+
+  "aliases": {
+  "MDT": "MikrodTech",
+  "mdt": "MikrodTech",
+  "mikrod tech": "MikrodTech"
+   },
+
   
   "core_values": [
     "Innovation",
@@ -78,44 +86,81 @@
       "CI/CD pipelines, DevOps workflows, and automation"
     ]
   },
+"products": {
+  "description": "MDT (MikrodTech) Products are proprietary technology platforms and intelligent systems engineered to solve real-world problems across businesses, institutions, and digital environments.",
 
-  "products": {
-    "computing_devices": [
-      "Laptops (business, student, and high-performance)",
-      "Desktop computers and workstations",
-      "All-in-one PCs"
-    ],
-    "networking_equipment": [
-      "Routers and enterprise-grade switches",
-      "Wireless access points (Wi-Fi systems)",
-      "Firewalls and network security appliances"
-    ],
-    "security_systems": [
-      "CCTV surveillance systems",
-      "Biometric access control systems",
-      "Smart security and alarm systems"
-    ],
-    "business_systems": [
-      "POS (Point of Sale) systems",
-      "Self-service kiosks",
-      "Barcode scanners and receipt printers"
-    ],
-    "office_equipment": [
-      "Printers and scanners",
-      "Photocopiers",
-      "Office productivity devices"
-    ],
-    "power_solutions": [
-      "UPS systems",
-      "Inverters",
-      "Backup batteries and power stabilization devices"
-    ],
-    "gaming_and_productivity": [
-      "Gaming PCs and accessories",
-      "Monitors and peripherals",
-      "Keyboards, mice, and ergonomic tools"
-    ]
-  },
+  "product_lines": {
+    
+    "mdt_remind": {
+      "name": "MDT Remind",
+      "type": "Productivity & Notification System",
+      "description": "An intelligent reminder and scheduling platform designed to help individuals, schools, and organizations manage tasks, events, and critical alerts efficiently.",
+      "features": [
+        "Smart reminders and scheduling",
+        "Multi-user and group notifications",
+        "Recurring and automated alerts",
+        "Integration with calendars and systems",
+        "Cloud-based access and synchronization"
+      ],
+      "use_cases": [
+        "Schools managing student schedules",
+        "Organizations tracking tasks and deadlines",
+        "Personal productivity and reminders"
+      ]
+    },
+
+    "mdt_cybersecurity": {
+      "name": "MDT Cybersecurity",
+      "type": "Security Platform",
+      "description": "A comprehensive cybersecurity solution designed to protect systems, networks, and data from digital threats using advanced monitoring, detection, and defense mechanisms.",
+      "features": [
+        "Threat detection and monitoring",
+        "Vulnerability scanning",
+        "Intrusion detection and prevention",
+        "Security reporting and analytics",
+        "Endpoint and network protection"
+      ],
+      "use_cases": [
+        "Enterprise security management",
+        "School and institutional network protection",
+        "Business data protection"
+      ]
+    },
+
+    "mdt_analytics": {
+      "name": "MDT Analytics",
+      "type": "Data & Intelligence Platform",
+      "description": "A data analytics and business intelligence platform that transforms raw data into actionable insights for smarter decision-making.",
+      "features": [
+        "Real-time data visualization dashboards",
+        "Data aggregation and processing",
+        "Performance tracking and reporting",
+        "Predictive analytics (future-ready)",
+        "Custom business intelligence tools"
+      ],
+      "use_cases": [
+        "Business performance tracking",
+        "School and student analytics systems",
+        "Operational insights for organizations"
+      ]
+    }
+  }
+},
+
+
+
+"hardware_solutions": {
+  "description": "MikrodTech also provides high-quality hardware and infrastructure solutions to complement its digital systems.",
+  "categories": [
+    "Computers and laptops",
+    "Networking equipment",
+    "Security systems (CCTV, access control)",
+    "POS and business systems",
+    "Office equipment",
+    "Power backup solutions",
+    "Gaming and productivity devices"
+  ]
+},
 
   "tech_recommendations": {
     "description": "MikrodTech provides expert technology recommendations tailored to user needs, budgets, and use-cases.",
@@ -178,7 +223,7 @@
 
   "slogan": "Smart Solutions. Trusted Tech.",
 
-  "assistant_identity": "You are MikrodTech's official AI assistant. You represent a premium, high-end technology engineering and solutions brand. You provide expert guidance on software engineering, cybersecurity, networking, enterprise IT, and technology systems. You also recommend the best devices, infrastructure, and business systems based on user needs, ensuring professional, accurate, and practical advice at all times.",
+  "assistant_identity": "You are MikrodTech's official AI assistant, representing a premium, high-end technology engineering and solutions brand. You provide expert guidance on software engineering, cybersecurity, networking, enterprise IT, and technology systems. You are fully knowledgeable about MikrodTech’s products, including MDT Remind, MDT Cybersecurity, MDT Analytics, and other MDT solutions, and can explain their features, use cases, and benefits. You also recommend the best devices, infrastructure, and business systems based on user needs, ensuring professional, accurate, and practical advice at all times.",
 
   "ecosystem": {
     "status": "upcoming",

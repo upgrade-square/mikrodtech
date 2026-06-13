@@ -1,21 +1,19 @@
 {
   "company": "MikrodTech",
   "tagline": "Smart Solutions. Trusted Tech.",
-  
-  "overview": "MikrodTech is a premium technology company specializing in cybersecurity, software engineering, and smart IoT solutions for businesses, institutions, organizations, and modern connected environments.",
-  
-  "mission": "To deliver secure, intelligent, and scalable cybersecurity, software engineering, and IoT solutions that help organizations innovate, operate efficiently, and grow confidently in a connected digital world.",
-  
- "vision": "To become one of Africa’s most respected technology companies—recognized globally for excellence in cybersecurity, software engineering, and intelligent IoT systems.",
 
+  "overview": "MikrodTech is a technology company specializing in Software Engineering, Cybersecurity, and IoT & Smart Systems. We help organizations build secure digital solutions, protect critical systems, and deploy intelligent connected technologies.",
+
+  "mission": "To deliver secure, innovative, and scalable software, cybersecurity, and IoT solutions that help organizations operate efficiently and confidently in a connected world.",
+
+  "vision": "To become one of Africa's most respected technology companies in Software Engineering, Cybersecurity, and Smart Systems.",
 
   "aliases": {
-  "MDT": "MikrodTech",
-  "mdt": "MikrodTech",
-  "mikrod tech": "MikrodTech"
-   },
+    "MDT": "MikrodTech",
+    "mdt": "MikrodTech",
+    "mikrod tech": "MikrodTech"
+  },
 
-  
   "core_values": [
     "Innovation",
     "Professionalism",
@@ -26,141 +24,65 @@
   ],
 
   "services": {
-  "software_engineering": {
-    "title": "Software Engineering",
-    "description": "Custom software, web applications, business systems, and scalable digital platforms.",
-    "capabilities": [
-      "Custom software development",
-      "Web application development",
-      "Business systems development",
-      "Scalable digital platforms",
-      "Workflow automation",
-      "API development and integration"
-    ]
-  },
-
-  "cybersecurity": {
-    "title": "Cybersecurity",
-    "description": "Secure infrastructure, threat protection, vulnerability management, and cybersecurity solutions.",
-    "capabilities": [
-      "Threat protection",
-      "Vulnerability assessments",
-      "Network security",
-      "Endpoint protection",
-      "Cybersecurity consulting",
-      "Security monitoring and prevention"
-    ]
-  },
-
-  "iot_and_smart_systems": {
-    "title": "IoT (Internet of Things) & Smart Systems",
-    "description": "Smart automation, connected devices, intelligent monitoring, sensor technologies, and future-ready IoT solutions.",
-    "capabilities": [
-      "Smart automation systems",
-      "Connected IoT devices",
-      "Sensor technologies",
-      "Intelligent monitoring systems",
-      "Smart home solutions",
-      "Smart business infrastructure",
-      "Smart home automation",
-      "Residential smart security systems",
-      "Smart business infrastructure",
-      "Connected living technologies"
-    ]
-  }
-},
-"products": {
-  "description": "MDT (MikrodTech) Products are proprietary technology platforms and intelligent systems engineered to solve real-world problems across businesses, institutions, and digital environments.",
-
-  "product_lines": {
-    
-    "mdt_remind": {
-      "name": "MDT Remind",
-      "type": "Productivity & Notification System",
-      "description": "An intelligent reminder and scheduling platform designed to help individuals, schools, and organizations manage tasks, events, and critical alerts efficiently.",
-      "features": [
-        "Smart reminders and scheduling",
-        "Multi-user and group notifications",
-        "Recurring and automated alerts",
-        "Integration with calendars and systems",
-        "Cloud-based access and synchronization"
-      ],
-      "use_cases": [
-        "Schools managing student schedules",
-        "Organizations tracking tasks and deadlines",
-        "Personal productivity and reminders"
+    "software_engineering": {
+      "title": "Software Engineering",
+      "description": "Design and development of custom software solutions for businesses and organizations.",
+      "capabilities": [
+        "Custom software development",
+        "Web application development",
+        "Business systems development",
+        "Database design and integration",
+        "API development and integration",
+        "Workflow automation",
+        "Software maintenance and support"
       ]
     },
 
-    "mdt_cybersecurity": {
-      "name": "MDT Cybersecurity",
-      "type": "Security Platform",
-      "description": "A comprehensive cybersecurity solution designed to protect systems, networks, and data from digital threats using advanced monitoring, detection, and defense mechanisms.",
-      "features": [
+    "cybersecurity": {
+      "title": "Cybersecurity",
+      "description": "Protection of digital assets, networks, and systems against cyber threats.",
+      "capabilities": [
+        "Vulnerability assessments",
+        "Network security",
+        "Security audits",
         "Threat detection and monitoring",
-        "Vulnerability scanning",
-        "Intrusion detection and prevention",
-        "Security reporting and analytics",
-        "Endpoint and network protection"
-      ],
-      "use_cases": [
-        "Enterprise security management",
-        "School and institutional network protection",
-        "Business data protection"
+        "Endpoint protection",
+        "Cybersecurity consulting",
+        "Security awareness guidance"
       ]
     },
 
-    "mdt_analytics": {
-      "name": "MDT Analytics",
-      "type": "Data & Intelligence Platform",
-      "description": "A data analytics and business intelligence platform that transforms raw data into actionable insights for smarter decision-making.",
-      "features": [
-        "Real-time data visualization dashboards",
-        "Data aggregation and processing",
-        "Performance tracking and reporting",
-        "Predictive analytics (future-ready)",
-        "Custom business intelligence tools"
-      ],
-      "use_cases": [
-        "Business performance tracking",
-        "School and student analytics systems",
-        "Operational insights for organizations"
+    "iot_and_smart_systems": {
+      "title": "IoT & Smart Systems",
+      "description": "Development and deployment of intelligent connected systems and smart automation solutions.",
+      "capabilities": [
+        "Smart automation systems",
+        "Connected IoT devices",
+        "Sensor-based monitoring solutions",
+        "Smart infrastructure systems",
+        "Remote monitoring platforms",
+        "Smart home solutions",
+        "Smart business solutions"
       ]
     }
-  }
-},
-
-"tech_recommendations": {
-  "description": "MikrodTech provides professional recommendations for cybersecurity systems, software platforms, cloud solutions, and IoT technologies.",
-
-  "categories": {
-    "software": "Recommendations for business software systems and scalable digital platforms.",
-    "cybersecurity": "Security tools, protection systems, and cyber risk mitigation solutions.",
-    "iot": "Smart systems, connected devices, automation technologies, and intelligent monitoring solutions."
   },
 
-  "approach": [
-    "Understand client operational needs",
-    "Recommend scalable and secure solutions",
-    "Prioritize efficiency, automation, and security",
-    "Ensure future-ready technology adoption"
-  ]
-},
-
-"industries_served": [
-  "Businesses and enterprises",
-  "Educational institutions",
-  "Technology startups",
-  "Professional organizations",
-  "Government and public sector institutions",
-  "Modern smart infrastructure projects"
-],
+  "industries_served": [
+    "Businesses and Enterprises",
+    "Educational Institutions",
+    "Technology Startups",
+    "Professional Organizations",
+    "Government and Public Sector Institutions"
+  ],
 
   "branding": {
     "tone": "Professional, authoritative, innovative, and trustworthy",
-    "colors": ["deep_blue", "black", "white"],
-    "style": "Minimalistic, modern, precise, and engineering-focused",
-    "logo_shape": "Geometric or futuristic form representing technology, precision, and innovation"
+    "colors": [
+      "deep_blue",
+      "black",
+      "white"
+    ],
+    "style": "Modern, precise, engineering-focused, and premium"
   },
 
   "contact_info": {
@@ -172,53 +94,27 @@
   },
 
   "social_media": {
-    "availability": "MikrodTech is available across all major social media platforms.",
     "platforms": [
       "LinkedIn",
-      "X (Twitter)",
-      "Instagram",
-      "Facebook",
-      "TikTok",
-      "YouTube",
       "WhatsApp Business"
     ],
     "handle": "MikrodTech",
     "whatsapp_number": "+254705826780"
   },
 
-  "slogan": "Smart Solutions. Trusted Tech.",
-
- "assistant_identity": "You are MikrodTech's official AI assistant representing a premium technology company specializing in cybersecurity, software engineering, and IoT smart systems. You provide professional guidance about MikrodTech services, MDT products, digital systems, smart automation, and secure technology solutions.",
-
-  "ecosystem": {
-    "status": "upcoming",
-   "description": "The MikrodTech Ecosystem is an integrated technology environment combining cybersecurity intelligence, software platforms, AI-driven systems, and smart IoT technologies designed to deliver secure, intelligent, and scalable digital solutions.",
-    
-    "sub_ecosystems": {
-      "MikrodAI": "AI automation, predictive analytics, and intelligent digital assistants.",
-      "MikrodHome": "Smart-home security, automation, surveillance, and energy efficiency technologies.",
-      "MikrodSecure": "Cybersecurity platforms, digital defense tools, and threat intelligence systems.",
-      "MikrodBusiness": "Enterprise software, POS systems, workflow automation, and productivity tools."
-    }
-  },
-
-  "general_tech_guidance": {
-    "laptop_recommendations": {
-      "computer_science_student": {
-        "recommended_specifications": {
-          "cpu": "Intel Core i7 / AMD Ryzen 7 (latest generation)",
-          "ram": "16GB minimum (32GB recommended)",
-          "storage": "512GB NVMe SSD minimum",
-          "display": "14–15.6 inch Full HD or higher",
-          "battery_life": "8+ hours",
-          "os": "Linux, Windows, or macOS depending on tools"
-        },
-        "notes": [
-          "Dedicated GPU only required for machine learning, AI, or graphics-heavy workloads",
-          "Prioritize reliability, build quality, and keyboard comfort over gaming aesthetics",
-          "Ensure compatibility with development tools like Docker, IDEs, and virtualization"
-        ]
-      }
-    }
+  "assistant_identity": {
+    "name": "MikrodTech AI Assistant",
+    "role": "Official MikrodTech AI Assistant",
+    "description": "Provide information strictly related to MikrodTech's Software Engineering, Cybersecurity, and IoT & Smart Systems services.",
+    "scope": [
+      "Software Engineering",
+      "Cybersecurity",
+      "IoT & Smart Systems"
+    ],
+    "response_policy": [
+      "Prioritize MikrodTech services when answering.",
+      "Do not advertise services outside MikrodTech's scope.",
+      "If asked about unrelated services, politely explain that MikrodTech currently focuses on Software Engineering, Cybersecurity, and IoT & Smart Systems."
+    ]
   }
 }
